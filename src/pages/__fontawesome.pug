@@ -1,0 +1,479 @@
+extends _layout.pug
+
+block append stylesheet
+  link(href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css", rel="stylesheet")
+  style.
+    .text-default {
+      font-size: 14px;
+      line-height: 1.42857143;
+      font-weight: normal;
+    }
+    .padding-right {
+      padding-right: 10px !important;
+    }
+
+    /* RATING */
+    .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      font-size: 30px;
+    }
+    .rating span.star {
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      display: inline-block;
+    }
+    .rating span.star:before {
+      content: "\f006";
+      padding-right: 5px;
+      color: #777;
+    }
+    .rating span.star:hover {
+      cursor: pointer;
+    }
+    .rating span.star:hover:before, .rating span.star:hover~span.star:before {
+      content: "\f005";
+      color: #e3cf7a;
+    }
+  
+
+block append header-script
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/http.min.js")
+  script.
+    hljs.initHighlightingOnLoad()
+
+block nav
+
+block content
+  .container
+    section#basic
+      h2.page-header
+        | Basic Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/core.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_core.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          p
+            i.fa.fa-camera-retro
+            span.sr-only Example: basic icon
+            |         fa-camera-retro
+        .col-md-9.col-sm-8
+          p
+            | You can place Font Awesome icons just about anywhere using the CSS Prefix 
+            code fa
+            |  and the icon's
+            |         name. Font Awesome is designed to be used with inline elements (we like the 
+            code <i>
+            |  tag for
+            |         brevity, but using a 
+            code <span>
+            |  is more semantically correct).
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-camera-retro"></i> fa-camera-retro'}
+          .alert.alert-success
+            ul.fa-ul
+              li
+                i.fa.fa-info-circle.fa-lg.fa-li(aria-hidden='true')
+                strong.sr-only Example: basic icon
+                |             If you change the font-size of the icon's container, the icon gets bigger. Same things goes for color,
+                |             drop shadow, and anything else that gets inherited using CSS.
+    section#larger
+      h2.page-header
+        | Larger Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/larger.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_larger.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          p
+            i.fa.fa-camera-retro.fa-lg(aria-hidden='true')
+            |  fa-lg
+          p
+            i.fa.fa-camera-retro.fa-2x(aria-hidden='true')
+            |  fa-2x
+          p
+            i.fa.fa-camera-retro.fa-3x(aria-hidden='true')
+            |  fa-3x
+          p
+            i.fa.fa-camera-retro.fa-4x(aria-hidden='true')
+            |  fa-4x
+          p
+            i.fa.fa-camera-retro.fa-5x(aria-hidden='true')
+            |  fa-5x
+        .col-md-9.col-sm-8
+          p
+            | To increase icon sizes relative to their container, use the 
+            code fa-lg
+            |  (33% increase), 
+            code fa-2x
+            | ,
+            code fa-3x
+            | , 
+            code fa-4x
+            | , or 
+            code fa-5x
+            |  classes.
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-camera-retro fa-lg"></i> fa-lg\n<i class="fa fa-camera-retro fa-2x"></i> fa-2x\n<i class="fa fa-camera-retro fa-3x"></i> fa-3x\n<i class="fa fa-camera-retro fa-4x"></i> fa-4x\n<i class="fa fa-camera-retro fa-5x"></i> fa-5x'}
+          .alert.alert-success
+            ul.fa-ul
+              li
+                i.fa.fa-exclamation-triangle.fa-li.fa-lg
+                |             If your icons are getting chopped off on top and bottom, make sure you have
+                |             sufficient line-height.
+    section#fixed-width
+      h2.page-header
+        | Fixed Width Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/fixed-width.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_fixed-width.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          .list-group
+            a.list-group-item(href='#')
+              i.fa.fa-home.fa-fw(aria-hidden='true')
+              |   Home
+            a.list-group-item(href='#')
+              i.fa.fa-book.fa-fw(aria-hidden='true')
+              |   Library
+            a.list-group-item(href='#')
+              i.fa.fa-pencil.fa-fw(aria-hidden='true')
+              |   Applications
+            a.list-group-item(href='#')
+              i.fa.fa-cog.fa-fw(aria-hidden='true')
+              |   Settings
+        .col-md-9.col-sm-8
+          p
+            | Use 
+            code fa-fw
+            |  to set icons at a fixed width. Great to use when different icon widths throw off alignment.
+            |         Especially useful in things like nav lists & list groups.
+          .highlight
+            pre
+              code.html
+                | #{'<div class="list-group">\n <a class="list-group-item" href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>\n <a class="list-group-item" href="#"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Library</a>\n <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Applications</a> \n<a class="list-group-item" href="#"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Settings</a> \n</div>'}
+    section#list
+      h2.page-header
+        | List Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/list.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_list.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          ul.fa-ul
+            li
+              i.fa-li.fa.fa-check-square
+              | List icons
+            li
+              i.fa-li.fa.fa-check-square
+              | can be used
+            li
+              i.fa-li.fa.fa-spinner.fa-spin
+              | as bullets
+            li
+              i.fa-li.fa.fa-square
+              | in lists
+        .col-md-9.col-sm-8
+          p
+            | Use 
+            code fa-ul
+            |  and 
+            code fa-li
+            |  to easily replace default bullets in unordered lists.
+          .highlight
+            pre
+              code.html #{'<ul class="fa-ul">\n  <li><i class="fa-li fa fa-check-square"></i>List icons</li>\n  <li><i class="fa-li fa fa-check-square"></i>can be used</li>\n  <li><i class="fa-li fa fa-spinner fa-spin"></i>as bullets</li>\n  <li><i class="fa-li fa fa-square"></i>in lists</li>\n</ul>'}
+    section#bordered-pulled
+      h2.page-header
+        | Bordered & Pulled Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/bordered-pulled.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_bordered-pulled.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          p
+            i.fa.fa-quote-left.fa-3x.fa-pull-left.fa-border(aria-hidden='true')
+            |         …tomorrow we will run faster, stretch out our arms farther… And then one fine morning—
+            |         So we beat on, boats against the current, borne back ceaselessly into the past.
+        .col-md-9.col-sm-8
+          p
+            | Use 
+            code fa-border
+            |  and 
+            code fa-pull-right
+            |  or 
+            code fa-pull-left
+            |  for easy pull quotes or
+            |         article icons.
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>\n...tomorrow we will run faster, stretch out our arms farther...\nAnd then one fine morning&mdash; So we beat on, boats against the\ncurrent, borne back ceaselessly into the past.'}
+    section#animated
+      h2.page-header
+        | Animated Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/animated.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_animated.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          p
+            i.fa.fa-spinner.fa-spin.fa-3x.fa-fw.margin-bottom
+            span.sr-only Loading example (with fa-spinner icon)
+            i.fa.fa-circle-o-notch.fa-spin.fa-3x.fa-fw.margin-bottom
+            span.sr-only Loading (with fa-circle-o-notch icon)
+            i.fa.fa-refresh.fa-spin.fa-3x.fa-fw.margin-bottom
+            span.sr-only Loading example (with fa-refresh icon)
+            i.fa.fa-cog.fa-spin.fa-3x.fa-fw.margin-bottom
+            span.sr-only Loading example (with fa-cog icon)
+            i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw.margin-bottom
+            span.sr-only Loading example (with fa-spinner icon)
+        .col-md-9.col-sm-8
+          p
+            | Use the 
+            code fa-spin
+            |  class to get any icon to rotate, and use 
+            code fa-pulse
+            |  to have it rotate
+            |         with 8 steps. Works well with 
+            code fa-spinner
+            | , 
+            code fa-refresh
+            | , and 
+            code fa-cog
+            | .
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>\n<span class="sr-only">Loading...</span>\n\n<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>\n<span class="sr-only">Loading...</span>\n\n<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>\n<span class="sr-only">Loading...</span>\n\n<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>\n<span class="sr-only">Loading...</span>\n\n<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>\n<span class="sr-only">Loading...</span>'}
+          p.alert.alert-success
+            i.fa.fa-exclamation-triangle.fa-lg(aria-hidden='true')
+            strong.sr-only Note:
+            |         Some browsers on some platforms have issues with animated icons resulting in a jittery wobbling effect. See
+            a.alert-link(href='https://github.com/FortAwesome/Font-Awesome/issues/671', target='_blank') issue #671
+            |         for examples and possible workarounds.
+          p.alert.alert-success
+            i.fa.fa-info-circle.fa-lg(aria-hidden='true')
+            strong.sr-only Note:
+            |  CSS3 animations aren't supported in IE8 - IE9.
+    section#rotated-flipped
+      h2.page-header
+        | Rotated & Flipped
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/rotated-flipped.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_rotated-flipped.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          p(style='font-size: 18px;')
+            i.fa.fa-shield(aria-hidden='true')
+            |   normal
+            br
+            i.fa.fa-shield.fa-rotate-90(aria-hidden='true')
+            |   fa-rotate-90
+            br
+            i.fa.fa-shield.fa-rotate-180(aria-hidden='true')
+            |   fa-rotate-180
+            br
+            i.fa.fa-shield.fa-rotate-270(aria-hidden='true')
+            |   fa-rotate-270
+            br
+            i.fa.fa-shield.fa-flip-horizontal(aria-hidden='true')
+            |   fa-flip-horizontal
+            br
+            i.fa.fa-shield.fa-flip-vertical(aria-hidden='true')
+            |   fa-flip-vertical
+        .col-md-9.col-sm-8
+          p
+            | To arbitrarily rotate and flip icons, use the 
+            code fa-rotate-*
+            |  and 
+            code fa-flip-*
+            |  classes.
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-shield"></i> normal<br>\n<i class="fa fa-shield fa-rotate-90"></i> fa-rotate-90<br>\n<i class="fa fa-shield fa-rotate-180"></i> fa-rotate-180<br>\n<i class="fa fa-shield fa-rotate-270"></i> fa-rotate-270<br>\n<i class="fa fa-shield fa-flip-horizontal"></i> fa-flip-horizontal<br>\n<i class="fa fa-shield fa-flip-vertical"></i> fa-flip-vertical'}
+    section#stacked
+      h2.page-header
+        | Stacked Icons
+        .pull-right.text-default.margin-top.padding-top-sm.hidden-xs
+          a.text-muted.padding-right(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/less/stacked.less') View LESS
+          a.text-muted(href='https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/scss/_stacked.scss') View SASS
+      .row
+        .col-md-3.col-sm-4
+          .margin-bottom
+            span.fa-stack.fa-lg(aria-hidden='true')
+              i.fa.fa-square-o.fa-stack-2x
+              i.fa.fa-twitter.fa-stack-1x
+            |         fa-twitter on fa-square-o
+            br
+            span.fa-stack.fa-lg(aria-hidden='true')
+              i.fa.fa-circle.fa-stack-2x
+              i.fa.fa-flag.fa-stack-1x.fa-inverse
+            |         fa-flag on fa-circle
+            br
+            span.fa-stack.fa-lg(aria-hidden='true')
+              i.fa.fa-square.fa-stack-2x
+              i.fa.fa-terminal.fa-stack-1x.fa-inverse
+            |         fa-terminal on fa-square
+            br
+            span.fa-stack.fa-lg(aria-hidden='true')
+              i.fa.fa-camera.fa-stack-1x
+              i.fa.fa-ban.fa-stack-2x.text-danger
+            |         fa-ban on fa-camera
+        .col-md-9.col-sm-8
+          p
+            | To stack multiple icons, use the 
+            code fa-stack
+            |  class on the parent, the 
+            code fa-stack-1x
+            |         for the regularly sized icon, and 
+            code fa-stack-2x
+            |  for the larger icon. 
+            code fa-inverse
+            |         can be used as an alternative icon color. You can even throw 
+            a(href='#larger') larger icon
+            |  classes on the parent
+            |         to get further control of sizing.
+          .highlight
+            pre
+              code.html #{'<span class="fa-stack fa-lg">\n  <i class="fa fa-square-o fa-stack-2x"></i>\n  <i class="fa fa-twitter fa-stack-1x"></i>\n</span>\nfa-twitter on fa-square-o<br>\n<span class="fa-stack fa-lg">\n  <i class="fa fa-circle fa-stack-2x"></i>\n  <i class="fa fa-flag fa-stack-1x fa-inverse"></i>\n</span>\nfa-flag on fa-circle<br>\n<span class="fa-stack fa-lg">\n  <i class="fa fa-square fa-stack-2x"></i>\n  <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>\n</span>\nfa-terminal on fa-square<br>\n<span class="fa-stack fa-lg">\n  <i class="fa fa-camera fa-stack-1x"></i>\n  <i class="fa fa-ban fa-stack-2x text-danger"></i>\n</span>\nfa-ban on fa-camera'}
+    section#bootstrap
+      h2.page-header Bootstrap 3 Examples
+      .row
+        .col-md-3.col-sm-4
+          p
+            a.btn.btn-danger(href='#')
+              i.fa.fa-trash-o.fa-lg
+              |  Delete
+            a.btn.btn-default.btn-sm(href='#')
+              i.fa.fa-cog
+              |  Settings
+          p
+            a.btn.btn-lg.btn-success(href='#')
+              i.fa.fa-flag.fa-2x.pull-left
+              |  Font Awesome
+              br
+              | Version 4.7.0
+          .margin-bottom
+            .btn-group
+              a.btn.btn-default(href='#')
+                i.fa.fa-align-left(title='Align Left')
+              a.btn.btn-default(href='#')
+                i.fa.fa-align-center(title='Align Center')
+              a.btn.btn-default(href='#')
+                i.fa.fa-align-right(title='Align Right')
+              a.btn.btn-default(href='#')
+                i.fa.fa-align-justify(title='Align Justify')
+          .margin-bottom
+            .input-group.margin-bottom-sm
+              span.input-group-addon
+                i.fa.fa-envelope-o.fa-fw
+              input.form-control(type='text', placeholder='Email address')
+            .input-group
+              span.input-group-addon
+                i.fa.fa-key.fa-fw
+              input.form-control(type='password', placeholder='Password')
+          .margin-bottom
+            .btn-group.open
+              a.btn.btn-primary(href='#')
+                i.fa.fa-user.fa-fw
+                |  User
+              a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.fa.fa-caret-down(title='Toggle dropdown menu')
+              ul.dropdown-menu
+                li
+                  a(href='#')
+                    i.fa.fa-pencil.fa-fw
+                    |  Edit
+                li
+                  a(href='#')
+                    i.fa.fa-trash-o.fa-fw
+                    |  Delete
+                li
+                  a(href='#')
+                    i.fa.fa-ban.fa-fw
+                    |  Ban
+                li.divider
+                li
+                  a(href='#')
+                    i.fa.fa-unlock
+                    |  Make admin
+        .col-md-9.col-sm-8
+          p
+            | Font Awesome works great with the full range of Bootstrap components.
+          .highlight
+            pre
+              code.html #{'<a class="btn btn-danger" href="#">\n  <i class="fa fa-trash-o fa-lg"></i> Delete</a>\n<a class="btn btn-default btn-sm" href="#">\n  <i class="fa fa-cog"></i> Settings</a>\n\n<a class="btn btn-lg btn-success" href="#">\n  <i class="fa fa-flag fa-2x pull-left"></i> Font Awesome<br>Version 4.7.0</a>\n\n<div class="btn-group">\n  <a class="btn btn-default" href="#">\n    <i class="fa fa-align-left" title="Align Left"></i>\n  </a>\n  <a class="btn btn-default" href="#">\n    <i class="fa fa-align-center" title="Align Center"></i>\n  </a>\n  <a class="btn btn-default" href="#">\n    <i class="fa fa-align-right" title="Align Right"></i>\n  </a>\n  <a class="btn btn-default" href="#">\n    <i class="fa fa-align-justify" title="Align Justify"></i>\n  </a>\n</div>\n\n<div class="input-group margin-bottom-sm">\n  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>\n  <input class="form-control" type="text" placeholder="Email address">\n</div>\n<div class="input-group">\n  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>\n  <input class="form-control" type="password" placeholder="Password">\n</div>\n\n<div class="btn-group open">\n  <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>\n  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">\n    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>\n  </a>\n  <ul class="dropdown-menu">\n    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>\n    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>\n    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>\n    <li class="divider"></li>\n    <li><a href="#"><i class="fa fa-unlock"></i> Make admin</a></li>\n  </ul>\n</div>'}
+    section#custom
+      h2.page-header Custom CSS
+      .row
+        .col-md-3.col-sm-4
+          p Anything you can do with CSS font styles, you can do with Font Awesome.
+        .col-md-9.col-sm-8
+          p
+            | Star Ratings (inspired by 
+            a(href='http://css-tricks.com/star-ratings/', target='_blank') CSS Tricks
+            | )
+          .well
+            span.rating
+              span.star
+              span.star
+              span.star
+              span.star
+              span.star
+    section#accessible
+      h2.page-header
+        | Accessibility-Minded
+      .row
+        .col-md-3.col-sm-4
+          p
+            a.btn.btn-default(href='path/to/settings', aria-label='Settings')
+              i.fa.fa-cog(aria-hidden='true')
+            a.btn.btn-danger(href='path/to/settings', aria-label='Delete')
+              i.fa.fa-trash-o(aria-hidden='true')
+            a.btn.btn-primary(href='#navigation-main', aria-label='Skip to main navigation')
+              i.fa.fa-bars(aria-hidden='true')
+          p
+            i.fa.fa-refresh.fa-spin.fa-3x.fa-fw(aria-hidden='true')
+            span.sr-only Refreshing...
+            i.fa.fa-cog.fa-spin.fa-3x.fa-fw(aria-hidden='true')
+            span.sr-only Saving. Hang tight!
+          p
+          .input-group.margin-bottom-sm
+            span.input-group-addon
+              i.fa.fa-envelope-o.fa-fw(aria-hidden='true')
+            input.form-control(type='text', placeholder='Email address')
+          .input-group
+            span.input-group-addon
+              i.fa.fa-key.fa-fw(aria-hidden='true')
+            input.form-control(type='password', placeholder='Password')
+          p
+          p
+            a.btn.btn-primary(href='path/to/shopping/cart', aria-label='View 3 items in your shopping cart')
+              i.fa.fa-shopping-cart(aria-hidden='true')
+          p
+            i.fa.fa-battery-half(aria-hidden='true')
+            span.sr-only Battery level: 50%
+        .col-md-9.col-sm-8
+          p
+            | With 
+            a(href='../accessibility/') our thoughts on icon accessibility
+            |  in mind, If an icon only adds some extra decoration or branding, it does not need to be announced to users as they are navigating your site or app aurally. Alternatively, if an icon conveys meaning in your content or interface, ensure that this meaning is also conveyed to assistive technologies through alternative displays or text.
+          .highlight
+            pre
+              code.html #{'<a class="btn btn-default" href="path/to/settings" aria-label="Settings">\n  <i class="fa fa-cog" aria-hidden="true"></i>\n</a>\n\n<a class="btn btn-danger" href="path/to/settings" aria-label="Delete">\n  <i class="fa fa-trash-o" aria-hidden="true"></i>\n</a>\n\n<a class="btn btn-primary" href="#navigation-main" aria-label="Skip to main navigation">\n  <i class="fa fa-bars" aria-hidden="true"></i>\n</a>'}
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-refresh fa-spin fa-3x fa-fw" aria-hidden="true"></i>\n<span class="sr-only">Refreshing...</span>\n\n<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>\n<span class="sr-only">Saving. Hang tight!</span>'}
+          .highlight
+            pre
+              code.html #{'<div class="input-group margin-bottom-sm">\n  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>\n  <input class="form-control" type="text" placeholder="Email address">\n</div>\n<div class="input-group">\n  <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>\n  <input class="form-control" type="password" placeholder="Password">\n</div>'}
+          .highlight
+            pre
+              code.html #{'<a href="path/to/shopping/cart" class="btn btn-primary" aria-label="View 3 items in your shopping cart">\n  <i class="fa fa-shopping-cart" aria-hidden="true"></i>\n</a>'}
+          .highlight
+            pre
+              code.html #{'<i class="fa fa-battery-half" aria-hidden="true"></i>\n<span class="sr-only">Battery level: 50%</span>'}

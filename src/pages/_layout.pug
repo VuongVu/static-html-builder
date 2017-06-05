@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-type" content="text/html; charset=utf-8")
+    title #{htmlWebpackPlugin.options.title}
+    block stylesheet
+    link(href='style.css', rel="stylesheet")
+    block header-script
+      if htmlWebpackPlugin.options.dev
+        script(src="http://localhost:35729/livereload.js")
+  body
+
+    block nav
+
+    block content
+
+    block footer
+      footer.container
+        .row
+          .col-lg-12
+            p.text-right
+              | Made by 
+              a(href='#', rel='nofollow') Cong Cuong Pham
+
+    block script
+      // jQuery (necessary for Bootstrap's JavaScript plugins)
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+      // Latest compiled and minified JavaScript
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+      // App
+      script(src='js/app.js')
